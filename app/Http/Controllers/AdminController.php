@@ -22,16 +22,39 @@ class AdminController extends Controller
       }
     }
 
-    public function adminlog(REQUEST $request){
-        $credentials = request(['email', 'password']);
+    // public function adminlog(REQUEST $request){
+    //     $credentials = request(['email', 'password']);
 
-        if (! $token = auth()->guard('admin_api')->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
+    //     if (! $token = auth()->guard('admin_api')->attempt($credentials)) {
+    //         return response()->json(['error' => 'Unauthorized'], 401);
+    //     }
+    //     // $cookie = cookie('token', $token, 60);
 
-        return $token;
+    //     // $token = $request->cookie('token');
 
+    //     return $token;
+
+    // }
+
+    public function adminlog(Request $request)
+{
+    $credentials = request(['email', 'password']);
+
+    if (! $token = auth()->guard('admin_api')->attempt($credentials)) {
+        return response()->json(['error' => 'Unauthorized'], 401);
     }
+
+    //Store the token in a cookie with a name of "token" and an expiration time of 1 hour
+    $cookie = cookie('token', $token, 60);
+
+    //Return a response with the token and cookie attached
+    return response()->json(['token' => $token])->cookie($cookie);
+
+
+
+}
+
+
 
     /**
      * Get the authenticated User.

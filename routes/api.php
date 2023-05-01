@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\MedicalRecordController;
+use App\Http\Controllers\MedicalReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,3 +83,10 @@ Route::get('/medicalrecord/{id}',[MedicalRecordController::class,'show']);
 Route::post('/medicalrecords',[MedicalRecordController::class,'store']);
 Route::post('/medicalrecords/{id}',[MedicalRecordController::class,'update']);
 Route::post('/medicalrecord/{id}',[MedicalRecordController::class,'destroy']);
+
+//medicalreports route
+Route::get('/medicalreports',[MedicalReportController::class,'index']);
+Route::get('/medicalreport/{id}',[MedicalReportController::class,'show']);
+Route::post('/medicalreports',[MedicalReportController::class,'store']);
+Route::post('/medicalreports/{id}',[MedicalReportController::class,'update']);
+Route::post('/medicalreport/{id}',[MedicalReportController::class,'destroy']);
