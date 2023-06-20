@@ -41,7 +41,7 @@ class HospitalController extends Controller
         $hospital=Hospital::find($id);
 
         if($hospital){
-           return $this->ApiResponse(new HospitalResource($hospital),"all done",200);
+            return $this->ApiResponse(new HospitalResource($hospital),"all done",200);
         }
         return $this->ApiResponse(null,"hospital not found",404);
 

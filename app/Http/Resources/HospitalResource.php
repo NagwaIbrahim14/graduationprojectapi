@@ -18,9 +18,9 @@ class HospitalResource extends JsonResource
         return [
             // 'xx'=>$this->id,
             'id'=>$this->id,
-             'name'=>$this->name,
-             'email'=>$this->email,
-             'contactno'=>$this->contactno
+            'name'=>$this->name,
+            'email'=>$this->email,
+            'contactno'=>$this->contactno
         ];
     }
 }
