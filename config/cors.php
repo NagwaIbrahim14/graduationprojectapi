@@ -15,28 +15,28 @@ return [
     |
     */
 
-    // 'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
-    // 'allowed_methods' => ['*'],
+    'allowed_methods' => ['*'],
 
-    // 'allowed_origins' => ['*'],
+    'allowed_origins' => ['*'],
 
-    // 'allowed_origins_patterns' => [],
-
-    // 'allowed_headers' => ['*'],
-
-    // 'exposed_headers' => [],
-
-    // 'max_age' => 0,
-
-    // 'supports_credentials' => false,
-
-    'paths' => ['api/*'],
-    'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE'],
-    'allowed_origins' => ['http://localhost:3000'], // Replace with your frontend URL
     'allowed_origins_patterns' => [],
-    'allowed_headers' => ['Content-Type', 'Authorization'],
+
+    'allowed_headers' => ['*'],
+
     'exposed_headers' => [],
+
     'max_age' => 0,
+
     'supports_credentials' => false,
+
+    // 'paths' => ['api/*'],
+    // 'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE'],
+    // 'allowed_origins' => ['http://localhost:3000'], // Replace with your frontend URL
+    // 'allowed_origins_patterns' => [],
+    // 'allowed_headers' => ['Content-Type', 'Authorization'],
+    // 'exposed_headers' => [],
+    // 'max_age' => 0,
+    // 'supports_credentials' => false,
 ];

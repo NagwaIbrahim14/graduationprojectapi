@@ -32,14 +32,13 @@ class DoctorController extends Controller
         if (! $token = auth()->guard('doctor_api')->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
-
-
     //Store the token in a cookie with a name of "token" and an expiration time of 1 hour
     $cookie = cookie('token', $token, 60);
+    $x= response()->json(auth()->guard('doctor_api')->user());
 
     //Return a response with the token and cookie attached
-    return response()->json(['token' => $token])->cookie($cookie);
-       
+    return response()->json(['token' => $token,'info'=>$x])->cookie($cookie);
+
 
     }
 
@@ -58,10 +57,20 @@ class DoctorController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function doctorlogout()
+    // public function doctorlogout()
+    // {
+    //     auth()->guard('doctor_api')->logout();
+
+    //     return response()->json(['message' => 'Successfully logged out']);
+    // }
+    public function patientlogout()
     {
         auth()->guard('doctor_api')->logout();
 
-        return response()->json(['message' => 'Successfully logged out']);
+        // Remove the 'token' cookie by creating a new cookie with an empty value and an expiration time in the past
+        $cookie = cookie('token', '', -1);
+
+        // Return a JSON response indicating that the logout was successful, with the 'token' cookie included to remove it from the client's browser
+        return response()->json(['message' => 'Successfully logged out'])->withCookie($cookie);
     }
 }
