@@ -8,13 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class MedicalReport extends Model
 {
     use HasFactory;
-    protected $fillable=['Obstructive_HCM','Gender','Syncope','Dyspnea','Fatigue','Presyncope','NYHA_Class',
-    'Atrial_Fibrillation','Hypertension','Beta_blocker','Ca_Channel_Blockers','ACEI_ARB','Coumadin',
-    'Max_Wall_Thick','Septal_Anterior_Motion','Mitral_Regurgitation','Ejection_Fraction','Hospital_id','patient_id'];
-
-
-
-    // protected $guarded=['Ejection_Fraction'];
+    // protected $fillable=['Obstructive_HCM','Gender','Syncope','Dyspnea','Fatigue','Presyncope','NYHA_Class',
+    // 'Atrial_Fibrillation','Hypertension','Beta_blocker','Ca_Channel_Blockers','ACEI_ARB','Coumadin',
+    // 'Max_Wall_Thick','Septal_Anterior_Motion','Mitral_Regurgitation','Ejection_Fraction','Hospital_id','patient_id'];
+    protected $guarded=[];
+    // 'Ejection_Fraction'
     //علاقه   المستشفيات والتقارير
     public function hospitals()
     {

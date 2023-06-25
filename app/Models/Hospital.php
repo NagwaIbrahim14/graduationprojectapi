@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Hospital extends Model
 {
     use HasFactory;
-    protected $fillable=['name','email','contactno'];
+    protected $fillable=['id','name','email','contactno'];
 }

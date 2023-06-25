@@ -32,7 +32,7 @@ class MedicalReportController extends Controller
         // return response($posts,$status=200,$msg);
 
         //way 3
-        return $this->ApiResponse($MedicalRecords,"all done",200);
+        return $this->ApiResponse($MedicalReports,"all done",200);
 
     }
 
@@ -43,7 +43,7 @@ class MedicalReportController extends Controller
         $MedicalReport= MedicalReport::find($id);
 
         if($MedicalReport){
-           return $this->ApiResponse(new MedicalReportResource($MedicalReport),"all done",200);
+            return $this->ApiResponse(new MedicalReportResource($MedicalReport),"all done",200);
         }
         return $this->ApiResponse(null,"MedicalReport not found",404);
 
@@ -116,7 +116,7 @@ class MedicalReportController extends Controller
              return $this->ApiResponse(null,$validator->errors(),400);
          }
          $MedicalReport=MedicalReport::find($id);
-         if(!$MedicalRecord){
+         if(!$MedicalReport){
             return $this->ApiResponse(null,"MedicalReport not found",400);
         }
 
@@ -128,13 +128,13 @@ class MedicalReportController extends Controller
     }
 
     public function destroy($id){
-        $MedicalRecord=MedicalReport::find($id);
+        $MedicalReport=MedicalReport::find($id);
         if(!$MedicalReport){
             return $this->ApiResponse(null, "MedicalReport not found",404);
         }
         $MedicalReport->delete($id);
 
-        if($MedicalRecord){
+        if($MedicalReport){
             return $this->ApiResponse(new MedicalReportResource($MedicalReport),"MedicalReport deleted successfully",200);
         }
     }

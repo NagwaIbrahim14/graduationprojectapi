@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class MedicalRecord extends Model
 {
     use HasFactory;
-    protected $guarded=[];
+    protected $fillable=['name','percentageofmodel','percentageofdoctor','Hospital_id','patient_id'];
     //علاقه   المستشفيات والداكتره
     public function hospitals()
     {
